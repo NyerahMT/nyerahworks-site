@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Case study: adding an iOS build and platform path to the community-maintained Principia physics sandbox while keeping the port close to upstream.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Principia for iOS — NyerahWorks</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../polish.css">
+  <link rel="stylesheet" href="../../case-study.css">
+  <script src="../../script.js" defer></script>
+</head>
+<body class="case-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header case-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="../../index.html" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#services">Services</a>
+        <a class="nav-contact" href="mailto:contact@nyerahworks.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <a class="case-back" href="../../index.html#work"><span aria-hidden="true">←</span> Selected work</a>
+        <p class="case-eyebrow">Case study / Principia</p>
+        <h1 class="case-title">Adding iOS without turning Principia into a separate project.</h1>
+        <p class="case-lede">Principia is a long-running community physics sandbox with an established C++ codebase and existing desktop and Android targets. The iOS work adds a device build, Apple-specific integration, packaging, and runtime fixes while keeping the repository recognizably upstream.</p>
+
+        <div class="repo-tags" aria-label="Repository tags">
+          <span class="repo-tag">iOS port</span>
+          <span class="repo-tag">C++</span>
+          <span class="repo-tag">SDL3</span>
+          <span class="repo-tag">CMake</span>
+          <span class="repo-tag">Ninja</span>
+          <span class="repo-tag">ARM64</span>
+          <span class="repo-tag">GitHub Actions</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-facts">
+      <dl class="shell case-facts-grid">
+        <div class="case-fact">
+          <dt>Original</dt>
+          <dd><a href="https://github.com/Bithack/principia">Bithack / Principia community ↗</a></dd>
+        </div>
+        <div class="case-fact">
+          <dt>Port repo</dt>
+          <dd><a href="https://github.com/NyerahMT/principia-ios">NyerahMT / principia-ios ↗</a></dd>
+        </div>
+        <div class="case-fact">
+          <dt>Target</dt>
+          <dd>iOS 15+ / iPhone / iPad / ARM64</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Priority</dt>
+          <dd>Small, maintainable upstream diff</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="shell case-media">
+      <figure>
+        <img src="https://raw.githubusercontent.com/Bithack/principia/master/data-src/github-image0.gif" alt="Principia open-source physics sandbox artwork" loading="eager" decoding="async">
+        <figcaption>Principia is a community-maintained open-source sandbox physics game. The iOS repository deliberately retains the upstream project structure and documentation.</figcaption>
+      </figure>
+    </section>
+
+    <div class="shell case-content">
+      <section class="case-section">
+        <div class="case-section-index">01</div>
+        <div class="case-section-copy">
+          <h2>The constraint was the repo, not just the phone.</h2>
+          <p>Principia already had years of history, multiple supported platforms, its own build system, community workflows, and an active upstream project. A port that only worked by heavily rewriting the source tree would have solved the immediate problem and created a permanent maintenance problem.</p>
+          <p>The iOS work was approached as another platform target rather than a new version of Principia. Existing project files and documentation stay intact wherever possible; Apple-specific build and packaging work lives alongside the existing platform infrastructure.</p>
+
+          <div class="case-note">
+            <p class="case-note-label">A useful detail</p>
+            <p>The port repository’s README is byte-for-byte the same file as upstream. That is deliberate. The point is to add an iOS path to Principia, not rebrand or fork the project into something unrelated.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">02</div>
+        <div class="case-section-copy">
+          <h2>A reproducible iOS device build</h2>
+          <p>The repository includes an iOS GitHub Actions workflow that builds a real ARM64 device target on macOS. CMake and Ninja configure the application for <code>iphoneos</code>, with an iOS 15 deployment target and ccache used to speed repeated builds.</p>
+          <p>The workflow also builds the dependencies the application needs for Apple hardware rather than assuming desktop libraries will be available on the runner.</p>
+
+          <ul class="case-list">
+            <li>CMake 3.31 + Ninja device build</li>
+            <li>ARM64 / <code>iphoneos</code> target</li>
+            <li>iOS 15.0 deployment target</li>
+            <li>Vendored SDL3 build path</li>
+            <li>Dependency and compiler caching in GitHub Actions</li>
+            <li>Release IPA assembled and verified in CI</li>
+          </ul>
+
+          <div class="code-callout">cmake -S . -B build-ios -G Ninja
+-DCMAKE_SYSTEM_NAME=iOS
+-DCMAKE_OSX_SYSROOT=iphoneos
+-DCMAKE_OSX_ARCHITECTURES=arm64
+-DUSE_VENDORED_SDL3=ON</div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">03</div>
+        <div class="case-section-copy">
+          <h2>Cross-compiling the dependency stack</h2>
+          <p>Principia depends on libraries that cannot simply be copied from a desktop build. The iOS dependency script cross-compiles static ARM64 versions of zlib, libpng, libjpeg-turbo, FreeType, and curl against the selected Apple SDK.</p>
+          <p>For curl, the iOS build uses Apple’s Secure Transport path. The result is a controlled dependency prefix that the main Principia CMake build can consume in CI.</p>
+
+          <ul class="case-list">
+            <li>zlib</li>
+            <li>libpng</li>
+            <li>libjpeg-turbo</li>
+            <li>FreeType</li>
+            <li>curl with Secure Transport</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">04</div>
+        <div class="case-section-copy">
+          <h2>Making the bundle behave like an iOS app</h2>
+          <p>Building the executable is only part of the port. The CI path assembles the <code>.app</code> bundle, copies Principia’s data, generates the required icon sizes, writes Apple bundle metadata, and packages an IPA.</p>
+          <p>The bundle declares both iPhone and iPad families, landscape orientation, iOS Files support, document opening in place, and the existing <code>principia://</code> URL scheme.</p>
+
+          <ul class="case-list">
+            <li>iPhone and iPad device families</li>
+            <li>Landscape orientation</li>
+            <li>Files sharing and document access</li>
+            <li><code>principia://</code> URL handling</li>
+            <li>Generated iPhone and iPad app icon sizes</li>
+            <li>Automated IPA packaging</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">05</div>
+        <div class="case-section-copy">
+          <h2>The device-only bugs were the real porting work.</h2>
+          <p>Once the game built and ran, the remaining problems were the kind that only show up when desktop software meets the iOS lifecycle: suspend and resume behavior, rendering state after Control Center or app switching, mobile input, interface scaling, and device-specific presentation.</p>
+          <p>Those fixes are less visible than the initial build system work, but they are the difference between “the executable launches” and “the application survives normal use on an iPhone.”</p>
+
+          <div class="case-note">
+            <p class="case-note-label">Engineering priority</p>
+            <p>Keep platform fixes narrow. The less unrelated source code the iOS port has to own, the easier it is to follow upstream Principia changes later.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">06</div>
+        <div class="case-section-copy">
+          <h2>Why this case matters</h2>
+          <p>Principia is a good example of the type of port NyerahWorks is built around: an existing project with real history, real users, and an upstream community that should not have to absorb a giant platform-specific rewrite.</p>
+          <p>The goal is not to make the iOS code look clever. It is to make iOS boring enough that the project can keep moving.</p>
+
+          <div class="case-links">
+            <a class="button button-primary" href="https://github.com/NyerahMT/principia-ios">View iOS repository ↗</a>
+            <a class="button button-quiet" href="https://github.com/Bithack/principia">View upstream project ↗</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="case-next">
+      <div class="shell">
+        <p class="kicker">Other case study</p>
+        <h2>Engine Simulator for iOS</h2>
+        <a class="case-next-link" href="../engine-simulator/">Read the Engine Simulator case study <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <a class="brand" href="../../index.html" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+      <div class="footer-links">
+        <a href="https://github.com/NyerahMT">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="mailto:contact@nyerahworks.com">Email</a>
+      </div>
+      <p>Software porting / iOS engineering · © <span data-year></span> NyerahWorks</p>
+    </div>
+  </footer>
+</body>
+</html>
