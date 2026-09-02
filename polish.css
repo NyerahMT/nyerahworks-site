@@ -1,4 +1,4 @@
-/* Final refinement layer: keep the existing responsive system, reduce the "startup template" feel. */
+/* Editorial refinement layer. Keep the responsive base, remove generic SaaS rhythms. */
 
 .brand-name {
   display: inline-flex;
@@ -15,43 +15,142 @@
   color: #e7e7e7;
 }
 
+/* The mark reads more like a wordmark detail than an app icon. */
+.brand-symbol {
+  display: inline-flex;
+  width: auto;
+  height: 22px;
+  padding-right: 10px;
+  border: 0;
+  border-right: 1px solid #3a3a3a;
+  border-radius: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 720;
+}
+
 .hero-shell {
   min-height: auto;
-  padding-top: 76px;
-  padding-bottom: 82px;
+  padding-top: 86px;
+  padding-bottom: 94px;
 }
 
 .hero h1 {
   max-width: 780px;
   font-size: clamp(2.85rem, 12vw, 5.15rem);
-  line-height: 0.98;
+  line-height: 0.96;
 }
 
 .hero-copy {
-  max-width: 760px;
-  font-size: clamp(1.02rem, 4vw, 1.2rem);
-  line-height: 1.62;
+  max-width: 720px;
+  font-size: clamp(1.02rem, 4vw, 1.18rem);
+  line-height: 1.64;
 }
 
 .kicker {
   letter-spacing: 0.085em;
 }
 
-.proof-grid strong {
-  color: #d0d0d0;
+.button,
+.site-nav .nav-contact {
+  border-radius: 2px;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.25);
+  transform-origin: left;
+  transition: opacity 180ms ease, transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.button:hover::after {
+  opacity: 0.35;
+  transform: scaleX(1);
+}
+
+/* Replace the familiar three equal-column proof strip with one engineering path. */
+.signal-strip {
+  border-bottom: 1px solid var(--line);
+  background: #0c0c0c;
+}
+
+.signal-line {
+  display: grid;
+  gap: 8px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.signal-label {
+  color: #696969;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.66rem;
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.signal-flow {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 11px;
+  color: #d2d2d2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.signal-arrow {
+  color: #647785;
 }
 
 .section {
-  padding-top: 78px;
-  padding-bottom: 78px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .section-intro {
-  margin-bottom: 42px;
+  margin-bottom: 44px;
 }
 
 .section-intro h2 {
-  max-width: 780px;
+  max-width: 760px;
+}
+
+.section-intro-editorial h2 {
+  max-width: 680px;
+}
+
+.section-intro > p:last-child {
+  max-width: 660px;
+}
+
+.project {
+  position: relative;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 52px;
+  height: 1px;
+  background: #8fa9bc;
 }
 
 .project-type {
@@ -62,6 +161,34 @@
   font-weight: 560;
   line-height: 1.55;
   letter-spacing: 0;
+}
+
+.project-figure {
+  isolation: isolate;
+  border-radius: 3px;
+}
+
+.project-figure img {
+  transform: scale(1.045) translate3d(0, var(--parallax-y, 0px), 0);
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.project-image-link:hover img {
+  transform: scale(1.06) translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+.project-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0;
+}
+
+.project-figure figcaption span:last-child {
+  color: #606060;
+  text-align: right;
 }
 
 .project-summary {
@@ -97,7 +224,26 @@
 }
 
 .capabilities-section {
-  background: #0f0f0f;
+  background: #0d0d0d;
+}
+
+.capability-list article {
+  position: relative;
+}
+
+.capability-list article::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #5f7484;
+  transition: width 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.capability-list article:hover::after {
+  width: min(180px, 35%);
 }
 
 .capability-list h3 {
@@ -110,22 +256,201 @@
 }
 
 .contact-section {
-  padding-top: 72px;
-  padding-bottom: 72px;
+  position: relative;
+  padding-top: 76px;
+  padding-bottom: 76px;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "NYW / IOS";
+  position: absolute;
+  right: max(20px, calc((100vw - var(--max-width)) / 2));
+  bottom: -0.16em;
+  color: rgba(17, 17, 17, 0.045);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.contact-grid {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-side p {
   max-width: 620px;
 }
 
+/* Scroll-linked reveal: a mechanical wipe on imagery, quiet movement on copy. */
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 620ms ease, transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motion-ready [data-reveal] .project-figure::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background: #151515;
+  transform: scaleX(1);
+  transform-origin: right center;
+  transition: transform 920ms 80ms cubic-bezier(0.77, 0, 0.18, 1);
+  pointer-events: none;
+}
+
+.motion-ready [data-reveal].is-visible .project-figure::after {
+  transform: scaleX(0);
+}
+
+/* Desktop page-position rail. It doubles as navigation context without becoming a widget. */
+.scroll-rail {
+  display: none;
+}
+
 @media (min-width: 700px) {
   .hero-shell {
-    padding-top: 104px;
-    padding-bottom: 108px;
+    padding-top: 114px;
+    padding-bottom: 120px;
+  }
+
+  .signal-line {
+    grid-template-columns: 120px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .section {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-shell {
+    min-height: min(760px, calc(100svh - 68px));
+  }
+
+  .hero h1 {
+    max-width: 860px;
+    font-size: clamp(5.2rem, 8.1vw, 7.4rem);
+  }
+
+  .section-intro {
+    margin-bottom: 66px;
+  }
+
+  .project {
+    gap: clamp(52px, 6.5vw, 96px);
+  }
+
+  .project-figure {
+    border-radius: 3px;
+  }
+
+  .project-featured .project-image-link {
+    transform: translateX(-10px);
+  }
+
+  .project-secondary .project-image-link {
+    transform: translateX(10px);
+  }
+
+  .capability-list article > div {
+    grid-template-columns: minmax(190px, 0.62fr) minmax(0, 1.38fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .scroll-rail {
+    position: fixed;
+    top: 50%;
+    right: 17px;
+    z-index: 40;
+    display: grid;
+    width: 34px;
+    justify-items: center;
+    gap: 10px;
+    transform: translateY(-50%);
+    color: #626262;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+  }
+
+  .scroll-rail-section {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+
+  .scroll-rail-track {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: 112px;
+    overflow: hidden;
+    background: #292929;
+  }
+
+  .scroll-rail-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: var(--scroll-progress, 0%);
+    background: #9eb6c8;
+  }
+
+  .scroll-rail-percent {
+    color: #858585;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (max-width: 520px) {
+  .project-figure figcaption {
+    display: block;
+  }
+
+  .project-figure figcaption span {
+    display: block;
+  }
+
+  .project-figure figcaption span:last-child {
+    margin-top: 3px;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready [data-reveal],
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-ready [data-reveal] .project-figure::after,
+  .motion-ready [data-reveal].is-visible .project-figure::after {
+    display: none;
+  }
+
+  .project-figure img,
+  .project-image-link:hover img {
+    transform: none;
   }
 }

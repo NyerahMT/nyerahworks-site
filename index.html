@@ -34,8 +34,14 @@
     </div>
   </header>
 
+  <aside class="scroll-rail" aria-hidden="true" data-scroll-rail>
+    <span class="scroll-rail-section" data-scroll-section>00 / TOP</span>
+    <span class="scroll-rail-track"><span class="scroll-rail-fill" data-scroll-fill></span></span>
+    <span class="scroll-rail-percent" data-scroll-percent>00</span>
+  </aside>
+
   <main id="main">
-    <section class="hero" id="top">
+    <section class="hero" id="top" data-scroll-section-name="00 / TOP">
       <div class="shell hero-shell">
         <p class="kicker">Software porting / iOS engineering</p>
         <h1>iOS ports for existing software.</h1>
@@ -47,35 +53,31 @@
       </div>
     </section>
 
-    <section class="proof-strip" aria-label="Engineering focus">
-      <div class="shell proof-grid">
-        <div>
-          <span class="proof-label">Codebases</span>
-          <strong>C / C++ / SDL</strong>
-        </div>
-        <div>
-          <span class="proof-label">Targets</span>
-          <strong>iPhone / iPad</strong>
-        </div>
-        <div>
-          <span class="proof-label">Delivery</span>
-          <strong>Xcode / TestFlight</strong>
+    <section class="signal-strip" aria-label="Engineering path">
+      <div class="shell signal-line">
+        <span class="signal-label">Typical path</span>
+        <div class="signal-flow" aria-label="C, C plus plus and SDL codebases to iPhone and iPad through Xcode and TestFlight">
+          <span>C / C++ / SDL</span>
+          <span class="signal-arrow" aria-hidden="true">→</span>
+          <span>iPhone / iPad</span>
+          <span class="signal-arrow" aria-hidden="true">→</span>
+          <span>Xcode / TestFlight</span>
         </div>
       </div>
     </section>
 
-    <section class="section shell" id="work">
-      <header class="section-intro">
+    <section class="section shell" id="work" data-scroll-section-name="01 / WORK">
+      <header class="section-intro section-intro-editorial" data-reveal>
         <p class="kicker">Selected work</p>
-        <h2>Current iOS ports</h2>
-        <p>Two open-source C++ applications adapted for Apple mobile platforms. The case studies document the actual platform work, build decisions, and upstream constraints.</p>
+        <h2>Existing code. New platform.</h2>
+        <p>Two open-source C++ applications adapted for Apple mobile platforms. The case studies document the platform work, build decisions, and upstream constraints—not a rewrite hidden behind a new interface.</p>
       </header>
 
-      <article class="project project-featured">
+      <article class="project project-featured" data-reveal data-parallax>
         <a class="project-image-link" href="work/engine-simulator/" aria-label="Read Engine Simulator for iOS case study">
           <figure class="project-figure">
             <img src="https://raw.githubusercontent.com/NyerahMT/engine-sim-ios/master/docs/public/screenshots/screenshot_v01.png" alt="Engine Simulator showing a mechanically rendered engine, gauges, and simulation data" loading="eager" decoding="async">
-            <figcaption>Engine Simulator — simulation interface</figcaption>
+            <figcaption><span>Engine Simulator</span><span>Simulation interface / iOS</span></figcaption>
           </figure>
         </a>
 
@@ -110,11 +112,11 @@
         </div>
       </article>
 
-      <article class="project project-secondary">
+      <article class="project project-secondary" data-reveal data-parallax>
         <a class="project-image-link" href="work/principia/" aria-label="Read Principia for iOS case study">
           <figure class="project-figure principia-figure">
             <img src="https://raw.githubusercontent.com/Bithack/principia/master/data-src/github-image0.gif" alt="Principia open-source physics sandbox game artwork" loading="lazy" decoding="async">
-            <figcaption>Principia — original open-source project</figcaption>
+            <figcaption><span>Principia</span><span>Original open-source project</span></figcaption>
           </figure>
         </a>
 
@@ -150,47 +152,47 @@
       </article>
     </section>
 
-    <section class="section capabilities-section" id="services">
+    <section class="section capabilities-section" id="services" data-scroll-section-name="02 / SERVICES">
       <div class="shell">
-        <header class="section-intro compact-intro">
+        <header class="section-intro compact-intro" data-reveal>
           <p class="kicker">Services</p>
           <h2>Porting and iOS integration</h2>
         </header>
 
         <div class="capability-list">
-          <article>
+          <article data-reveal>
             <span class="capability-number">01</span>
             <div>
-              <h3>New iOS ports</h3>
-              <p>Compatibility review, build-system adaptation, platform integration, device testing, and distribution for an existing desktop application.</p>
+              <h3>Make it build</h3>
+              <p>Compatibility review, build-system adaptation, dependency work, Apple bundle configuration, and an ARM64 path from the existing source tree to a real device.</p>
             </div>
           </article>
-          <article>
+          <article data-reveal>
             <span class="capability-number">02</span>
             <div>
-              <h3>Existing port repair</h3>
-              <p>Lifecycle, rendering, input, audio, packaging, signing, and device-specific problems in an iOS port that already builds or partially runs.</p>
+              <h3>Make it behave</h3>
+              <p>Lifecycle, rendering, touch input, audio, file access, packaging, signing, and device-specific problems that appear once desktop software is living on iOS.</p>
             </div>
           </article>
-          <article>
+          <article data-reveal>
             <span class="capability-number">03</span>
             <div>
-              <h3>Upstream maintenance</h3>
-              <p>Keeping platform-specific changes contained so an iOS port can follow an active upstream project without unnecessary fork drift.</p>
+              <h3>Keep it maintainable</h3>
+              <p>Platform-specific changes kept deliberate and contained so the iOS port can continue following an active upstream project without unnecessary fork drift.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
-      <div class="shell contact-grid">
+    <section class="contact-section" id="contact" data-scroll-section-name="03 / CONTACT">
+      <div class="shell contact-grid" data-reveal>
         <div>
           <p class="kicker">Project inquiries</p>
-          <h2>Need iOS support for an existing codebase?</h2>
+          <h2>Start with the codebase.</h2>
         </div>
         <div class="contact-side">
-          <p>Send a repository link or a short description of the application, its current platform, and the Apple devices you want to support.</p>
+          <p>Send a repository link or a short description of the application, its current platform, and the Apple devices you want to support. The first question is whether the existing architecture can make the move cleanly.</p>
           <a class="button button-light" href="mailto:contact@nyerahworks.com">contact@nyerahworks.com</a>
         </div>
       </div>
