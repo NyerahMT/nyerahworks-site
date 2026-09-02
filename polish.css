@@ -55,7 +55,13 @@
 }
 
 .project-type {
+  max-width: 100%;
   color: #9eb6c8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 560;
+  line-height: 1.55;
+  letter-spacing: 0;
 }
 
 .project-summary {
@@ -73,12 +79,21 @@
 .project-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 14px;
+  gap: 8px 20px;
+  margin-top: 16px;
 }
 
 .project-links .text-link {
   margin-top: 0;
+}
+
+.project-case-link {
+  color: #f1f1f1;
+  font-weight: 700;
+}
+
+.project-case-link span {
+  color: #9eb6c8;
 }
 
 .capabilities-section {
