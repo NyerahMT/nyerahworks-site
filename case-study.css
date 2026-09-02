@@ -1,0 +1,357 @@
+/* Project case studies — intentionally editorial rather than card-heavy. */
+
+.case-body {
+  background: var(--bg);
+}
+
+.case-header .nav-shell {
+  min-height: 64px;
+}
+
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.case-back:hover {
+  color: var(--text);
+}
+
+.case-hero {
+  padding-top: 66px;
+  padding-bottom: 46px;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-eyebrow {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 650;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.case-title {
+  max-width: 980px;
+  margin-bottom: 26px;
+  font-size: clamp(2.7rem, 12vw, 6rem);
+  font-weight: 620;
+  line-height: 0.98;
+  letter-spacing: -0.052em;
+}
+
+.case-lede {
+  max-width: 800px;
+  margin: 0;
+  color: var(--muted-strong);
+  font-size: clamp(1.08rem, 4.5vw, 1.35rem);
+  line-height: 1.62;
+}
+
+.repo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.repo-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid var(--line-light);
+  border-radius: 999px;
+  color: #bfc6cc;
+  background: #0e0e0e;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: -0.01em;
+}
+
+.case-facts {
+  border-bottom: 1px solid var(--line);
+}
+
+.case-facts-grid {
+  display: grid;
+}
+
+.case-fact {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-fact:last-child {
+  border-bottom: 0;
+}
+
+.case-fact dt,
+.case-fact dd {
+  margin: 0;
+}
+
+.case-fact dt {
+  color: #747474;
+  font-size: 0.72rem;
+}
+
+.case-fact dd {
+  min-width: 0;
+  color: #d0d0d0;
+  font-size: 0.88rem;
+}
+
+.case-fact a {
+  text-decoration: underline;
+  text-decoration-color: #444;
+  text-underline-offset: 4px;
+}
+
+.case-fact a:hover {
+  text-decoration-color: #aaa;
+}
+
+.case-media {
+  padding-top: 46px;
+  padding-bottom: 46px;
+}
+
+.case-media figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.case-media img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.case-media figcaption {
+  padding: 11px 13px;
+  border-top: 1px solid var(--line);
+  color: #777;
+  font-size: 0.7rem;
+}
+
+.case-content {
+  padding-top: 24px;
+  padding-bottom: 88px;
+}
+
+.case-section {
+  display: grid;
+  gap: 20px;
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+
+.case-section:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.case-section-index {
+  color: #626262;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.73rem;
+}
+
+.case-section-copy {
+  max-width: 760px;
+}
+
+.case-section h2 {
+  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 7vw, 3.15rem);
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+}
+
+.case-section h3 {
+  margin: 34px 0 12px;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.case-section p {
+  margin-bottom: 18px;
+  color: #b2b2b2;
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.case-section p:last-child {
+  margin-bottom: 0;
+}
+
+.case-section strong {
+  color: #e3e3e3;
+  font-weight: 620;
+}
+
+.case-list {
+  display: grid;
+  gap: 0;
+  margin: 26px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.case-list li {
+  position: relative;
+  padding: 13px 0 13px 21px;
+  border-bottom: 1px solid var(--line);
+  color: #b9b9b9;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.case-list li::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #8299aa;
+}
+
+.case-note {
+  margin-top: 30px;
+  padding: 22px 0 4px;
+  border-top: 1px solid var(--line-light);
+}
+
+.case-note-label {
+  margin-bottom: 9px !important;
+  color: #778b9a !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.7rem !important;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.code-callout {
+  margin-top: 26px;
+  padding: 18px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0d0d0d;
+  color: #b7c1c9;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.case-links .button {
+  width: 100%;
+}
+
+.case-next {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.case-next .kicker {
+  margin-bottom: 14px;
+}
+
+.case-next h2 {
+  max-width: 720px;
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 8vw, 3.6rem);
+}
+
+.case-next-link {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid #4a4a4a;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 620;
+}
+
+@media (min-width: 700px) {
+  .case-hero {
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
+
+  .case-facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-fact {
+    grid-template-columns: 105px minmax(0, 1fr);
+    padding: 20px 22px 20px 0;
+  }
+
+  .case-fact:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .case-fact:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .case-fact:nth-child(even) {
+    padding-left: 22px;
+  }
+
+  .case-media {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .case-section {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 38px;
+    padding: 68px 0;
+  }
+
+  .case-links .button {
+    width: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .case-hero {
+    padding-top: 124px;
+    padding-bottom: 86px;
+  }
+
+  .case-content {
+    padding-bottom: 120px;
+  }
+
+  .case-section {
+    grid-template-columns: 140px minmax(0, 1fr);
+    padding: 78px 0;
+  }
+}
