@@ -68,11 +68,11 @@
       <header class="section-intro">
         <p class="kicker">Selected work</p>
         <h2>Current iOS ports</h2>
-        <p>Two open-source C++ applications adapted for Apple mobile platforms.</p>
+        <p>Two open-source C++ applications adapted for Apple mobile platforms. The case studies document the actual platform work, build decisions, and upstream constraints.</p>
       </header>
 
       <article class="project project-featured">
-        <a class="project-image-link" href="https://github.com/NyerahMT/engine-sim-ios" aria-label="View Engine Simulator iOS repository">
+        <a class="project-image-link" href="work/engine-simulator/" aria-label="Read Engine Simulator for iOS case study">
           <figure class="project-figure">
             <img src="https://raw.githubusercontent.com/NyerahMT/engine-sim-ios/master/docs/public/screenshots/screenshot_v01.png" alt="Engine Simulator showing a mechanically rendered engine, gauges, and simulation data" loading="eager" decoding="async">
             <figcaption>Engine Simulator — simulation interface</figcaption>
@@ -82,7 +82,7 @@
         <div class="project-body">
           <div class="project-heading-row">
             <div>
-              <p class="project-type">Engine Simulator · iOS</p>
+              <p class="project-type">iOS port · C++ · SDL3 · Metal · ARM64</p>
               <h3>Engine Simulator for iOS</h3>
             </div>
             <span class="project-index">01</span>
@@ -98,11 +98,12 @@
               <strong>iOS / iPadOS / ARM64</strong>
             </div>
             <div>
-              <span>Integration</span>
-              <strong>SDL3 · Metal · Files · TestFlight</strong>
+              <span>Distribution</span>
+              <strong>TestFlight / App Store submission</strong>
             </div>
           </div>
           <div class="project-links">
+            <a class="text-link project-case-link" href="work/engine-simulator/">Read case study <span aria-hidden="true">→</span></a>
             <a class="text-link" href="https://github.com/NyerahMT/engine-sim-ios">iOS repository <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="https://github.com/ange-yaghi/engine-sim">Original project <span aria-hidden="true">↗</span></a>
           </div>
@@ -110,7 +111,7 @@
       </article>
 
       <article class="project project-secondary">
-        <a class="project-image-link" href="https://github.com/NyerahMT/principia-ios" aria-label="View Principia iOS repository">
+        <a class="project-image-link" href="work/principia/" aria-label="Read Principia for iOS case study">
           <figure class="project-figure principia-figure">
             <img src="https://raw.githubusercontent.com/Bithack/principia/master/data-src/github-image0.gif" alt="Principia open-source physics sandbox game artwork" loading="lazy" decoding="async">
             <figcaption>Principia — original open-source project</figcaption>
@@ -120,27 +121,28 @@
         <div class="project-body">
           <div class="project-heading-row">
             <div>
-              <p class="project-type">Principia · iOS</p>
+              <p class="project-type">iOS port · C++ · SDL3 · CMake · GitHub Actions</p>
               <h3>Principia for iOS</h3>
             </div>
             <span class="project-index">02</span>
           </div>
-          <p class="project-summary">Port of the community-maintained Principia physics sandbox to iOS. The work covers Apple build integration, lifecycle and resume behavior, mobile input and interface adaptation, device-specific rendering fixes, and repository structure intended to keep the iOS changes close to upstream.</p>
+          <p class="project-summary">Port of the community-maintained Principia physics sandbox to iOS. The work covers ARM64 builds, cross-compiled dependencies, Apple bundle configuration, lifecycle and resume behavior, mobile input, device-specific rendering fixes, and a repository structure intended to stay close to upstream.</p>
           <div class="project-details">
             <div>
               <span>Original</span>
               <strong>Bithack / Principia community</strong>
             </div>
             <div>
-              <span>Codebase</span>
-              <strong>C++ / SDL</strong>
+              <span>Build</span>
+              <strong>CMake / Ninja / iOS 15+</strong>
             </div>
             <div>
-              <span>Port focus</span>
-              <strong>iOS platform layer / upstream compatibility</strong>
+              <span>Priority</span>
+              <strong>Maintainable upstream diff</strong>
             </div>
           </div>
           <div class="project-links">
+            <a class="text-link project-case-link" href="work/principia/">Read case study <span aria-hidden="true">→</span></a>
             <a class="text-link" href="https://github.com/NyerahMT/principia-ios">iOS repository <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="https://github.com/Bithack/principia">Original project <span aria-hidden="true">↗</span></a>
           </div>
