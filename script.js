@@ -12,6 +12,12 @@ const updateHeader = () => {
   header.classList.toggle('scrolled', window.scrollY > 8);
 };
 
+const closeMenu = () => {
+  if (!menuButton || !nav) return;
+  nav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+};
+
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
@@ -22,29 +28,14 @@ if (menuButton && nav) {
   });
 
   nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuButton.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-const revealItems = document.querySelectorAll('.reveal');
-
-if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    rootMargin: '0px 0px -8% 0px',
-    threshold: 0.08,
+    link.addEventListener('click', closeMenu);
   });
 
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add('visible'));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 900) closeMenu();
+  }, { passive: true });
 }
