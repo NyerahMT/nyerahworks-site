@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Case study: adapting Ange Yaghi's Engine Simulator for iPhone and iPad with native ARM64 builds, SDL3/Metal rendering, touch input, Files integration, and iOS distribution.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Engine Simulator for iOS — NyerahWorks</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../polish.css">
+  <link rel="stylesheet" href="../../case-study.css">
+  <script src="../../script.js" defer></script>
+</head>
+<body class="case-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header case-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="../../index.html" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#services">Services</a>
+        <a class="nav-contact" href="mailto:contact@nyerahworks.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <a class="case-back" href="../../index.html#work"><span aria-hidden="true">←</span> Selected work</a>
+        <p class="case-eyebrow">Case study / Engine Simulator</p>
+        <h1 class="case-title">Engine Simulator on iPhone and iPad.</h1>
+        <p class="case-lede">A native iOS port of Ange Yaghi’s open-source Engine Simulator. The simulator itself stays intact; the work is in the platform layer around it—builds, input, lifecycle, rendering, audio, files, and distribution.</p>
+
+        <div class="repo-tags" aria-label="Repository tags">
+          <span class="repo-tag">iOS port</span>
+          <span class="repo-tag">C++</span>
+          <span class="repo-tag">SDL3</span>
+          <span class="repo-tag">Metal</span>
+          <span class="repo-tag">ARM64</span>
+          <span class="repo-tag">TestFlight</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-facts">
+      <dl class="shell case-facts-grid">
+        <div class="case-fact">
+          <dt>Original</dt>
+          <dd><a href="https://github.com/ange-yaghi/engine-sim">Ange Yaghi / engine-sim ↗</a></dd>
+        </div>
+        <div class="case-fact">
+          <dt>Port repo</dt>
+          <dd><a href="https://github.com/NyerahMT/engine-sim-ios">NyerahMT / engine-sim-ios ↗</a></dd>
+        </div>
+        <div class="case-fact">
+          <dt>Targets</dt>
+          <dd>iPhone / iPad / ARM64</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Scope</dt>
+          <dd>Platform integration and mobile adaptation</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="shell case-media">
+      <figure>
+        <img src="https://raw.githubusercontent.com/ange-yaghi/engine-sim/master/docs/public/screenshots/screenshot_v01.png" alt="Engine Simulator running its mechanical engine visualization and gauges" loading="eager" decoding="async">
+        <figcaption>Original Engine Simulator interface. The iOS port preserves the simulator, scripting system, synthesized audio, and mechanical visualization.</figcaption>
+      </figure>
+    </section>
+
+    <div class="shell case-content">
+      <section class="case-section">
+        <div class="case-section-index">01</div>
+        <div class="case-section-copy">
+          <h2>The starting point</h2>
+          <p>Engine Simulator was already a substantial desktop application. It models internal-combustion engine components in real time, generates audio from the simulated engine rather than prerecorded samples, and loads engine definitions through its own <code>.mr</code> scripting system.</p>
+          <p>The job was not to recreate that experience in Swift. It was to get the existing application running directly on Apple mobile hardware without breaking the parts that make Engine Simulator what it is.</p>
+
+          <div class="case-note">
+            <p class="case-note-label">Porting note</p>
+            <p>The first milestone in a port is usually easy to describe: get a build and get a frame on screen. The work after that—input, lifecycle, file access, device behavior, and packaging—is what decides whether it feels like a real iOS application or a desktop program forced onto a phone.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">02</div>
+        <div class="case-section-copy">
+          <h2>Building the iOS layer</h2>
+          <p>The port runs natively on ARM64 iPhone and iPad hardware. SDL3 provides the cross-platform application layer, with Metal-backed rendering on Apple devices and native iOS audio output.</p>
+          <p>Desktop assumptions had to be replaced where the platform changes the rules. That includes touch input, app suspension and resume behavior, high-refresh displays, local file handling, and interface behavior across different device sizes.</p>
+
+          <ul class="case-list">
+            <li>Native ARM64 application runtime for iPhone and iPad</li>
+            <li>Touchscreen controls and device-aware interface behavior</li>
+            <li>iOS application lifecycle handling</li>
+            <li>Metal-backed GPU rendering through SDL3</li>
+            <li>Native audio output and high-refresh-rate support</li>
+            <li>Integration with the iOS Files app</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">03</div>
+        <div class="case-section-copy">
+          <h2>Keeping custom engines compatible</h2>
+          <p>Engine Simulator has an existing community around custom engine scripts. Creating a separate mobile-only engine format would have made the port easier in the short term and worse in every other way.</p>
+          <p>The iOS version keeps support for Engine Simulator’s existing <code>.mr</code> scripts. Custom engines can be imported through iOS and stored in the app’s Custom Engines directory, so community engines can move onto an iPhone or iPad without conversion.</p>
+
+          <div class="case-note">
+            <p class="case-note-label">Decision</p>
+            <p>Preserve the original data format. Platform adaptation should add an iOS path around the software, not create a second ecosystem that has to be maintained separately.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">04</div>
+        <div class="case-section-copy">
+          <h2>Testing and distribution</h2>
+          <p>The application has been built and tested as an actual iOS app rather than a streamed or remote desktop front end. Distribution work includes code signing, device builds, TestFlight, and the App Store submission path.</p>
+          <p>Testing on physical hardware matters here because several of the problems that make or break a port—touch behavior, audio, backgrounding, display refresh, file import, and device scaling—do not show up the same way in a desktop build.</p>
+
+          <ul class="case-list">
+            <li>Physical-device testing on iOS hardware</li>
+            <li>TestFlight distribution</li>
+            <li>App Store packaging and submission workflow</li>
+            <li>Mobile engine selection and custom engine importing</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-index">05</div>
+        <div class="case-section-copy">
+          <h2>Attribution matters</h2>
+          <p>Engine Simulator was created by Ange Yaghi. The iOS project is an unofficial port, not an official release by the original author, and it does not claim ownership of the simulator itself.</p>
+          <p>The value of the port is the adaptation work: taking an established open-source application and making it behave as a native mobile application while keeping the original project recognizable and compatible.</p>
+
+          <div class="case-links">
+            <a class="button button-primary" href="https://github.com/NyerahMT/engine-sim-ios">View iOS repository ↗</a>
+            <a class="button button-quiet" href="https://github.com/ange-yaghi/engine-sim">View original project ↗</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="case-next">
+      <div class="shell">
+        <p class="kicker">Next case study</p>
+        <h2>Principia for iOS</h2>
+        <a class="case-next-link" href="../principia/">Read the Principia case study <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <a class="brand" href="../../index.html" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+      <div class="footer-links">
+        <a href="https://github.com/NyerahMT">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="mailto:contact@nyerahworks.com">Email</a>
+      </div>
+      <p>Software porting / iOS engineering · © <span data-year></span> NyerahWorks</p>
+    </div>
+  </footer>
+</body>
+</html>
