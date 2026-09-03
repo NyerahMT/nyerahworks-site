@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="The requested NyerahWorks page could not be found.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <title>404 — NyerahWorks</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/polish.css">
+  <style>
+    .error-main {
+      min-height: calc(100svh - 6rem);
+      display: grid;
+      align-items: center;
+      padding: 8rem 0 5rem;
+    }
+
+    .error-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(17rem, .65fr);
+      gap: clamp(2.5rem, 8vw, 8rem);
+      align-items: end;
+    }
+
+    .error-code {
+      margin: 0 0 .5rem;
+      font-size: clamp(6rem, 21vw, 17rem);
+      line-height: .72;
+      letter-spacing: -.075em;
+      font-weight: 800;
+    }
+
+    .error-copy h1 {
+      max-width: 10ch;
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 5.8rem);
+      line-height: .94;
+      letter-spacing: -.045em;
+    }
+
+    .error-side {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line, rgba(255,255,255,.16));
+    }
+
+    .error-side p {
+      max-width: 31rem;
+      margin: 0 0 2rem;
+      color: var(--muted, #a6a6a6);
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    @media (max-width: 760px) {
+      .error-main { padding-top: 7rem; }
+      .error-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .error-code { font-size: clamp(7rem, 37vw, 12rem); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+      <nav class="site-nav">
+        <a href="/#work">Work</a>
+        <a href="/#services">Services</a>
+        <a class="nav-contact" href="mailto:contact@nyerahworks.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="error-main">
+    <div class="shell error-grid">
+      <div class="error-copy">
+        <p class="kicker">Route not found</p>
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1>No target at this path.</h1>
+      </div>
+      <div class="error-side">
+        <p>The address may have moved, changed, or never existed. The rest of NyerahWorks is exactly where it should be.</p>
+        <div class="error-actions">
+          <a class="button button-primary" href="/">Back to NyerahWorks</a>
+          <a class="button button-quiet" href="/#work">Selected work <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
