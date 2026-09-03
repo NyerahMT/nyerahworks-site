@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Submit a project inquiry to NyerahWorks for software porting, iOS engineering, platform integration, and application modernization work.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://nyerahworks.com/inquiry/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <title>Project Inquiry — NyerahWorks</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../polish.css">
+  <link rel="stylesheet" href="inquiry.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="../" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="../#work">Work</a>
+        <a href="../#services">Services</a>
+        <a class="nav-contact" href="./" aria-current="page">Project inquiry</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="inquiry-main">
+    <section class="inquiry-hero">
+      <div class="shell inquiry-hero-grid">
+        <div data-reveal>
+          <p class="kicker">Project inquiry</p>
+          <h1>Tell us about the software.</h1>
+        </div>
+        <div class="inquiry-intro" data-reveal>
+          <p>Provide enough context to evaluate the current codebase, target platform, scope, and delivery requirements. NyerahWorks will review the information and follow up by email.</p>
+          <p class="inquiry-direct">Prefer email? <a href="mailto:contact@nyerahworks.com">contact@nyerahworks.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="inquiry-section">
+      <div class="shell inquiry-layout">
+        <aside class="inquiry-aside" data-reveal>
+          <p class="aside-label">Before submitting</p>
+          <ol>
+            <li><span>01</span><p>Include a repository, product, or documentation link when one is available.</p></li>
+            <li><span>02</span><p>Describe the current platform and the platform you want to support.</p></li>
+            <li><span>03</span><p>Call out hard deadlines, distribution requirements, or known technical constraints.</p></li>
+          </ol>
+        </aside>
+
+        <form class="project-form" action="https://formsubmit.co/contact@nyerahworks.com" method="POST" data-reveal>
+          <input type="hidden" name="_subject" value="New Project Inquiry — NyerahWorks">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://nyerahworks.com/inquiry/thanks/">
+          <input type="hidden" name="_url" value="https://nyerahworks.com/inquiry/">
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="company-website">Leave this field empty</label>
+            <input id="company-website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <fieldset>
+            <legend>Contact</legend>
+            <div class="form-grid two-column">
+              <div class="form-field">
+                <label for="full-name">Full name <span aria-hidden="true">*</span></label>
+                <input id="full-name" name="Full Name" type="text" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="work-email">Work email <span aria-hidden="true">*</span></label>
+                <input id="work-email" name="email" type="email" inputmode="email" autocomplete="email" required>
+              </div>
+              <div class="form-field">
+                <label for="company">Company / organization</label>
+                <input id="company" name="Company or Organization" type="text" autocomplete="organization">
+              </div>
+              <div class="form-field">
+                <label for="project-name">Project name</label>
+                <input id="project-name" name="Project Name" type="text">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Project</legend>
+            <div class="form-grid two-column">
+              <div class="form-field">
+                <label for="project-type">Project type <span aria-hidden="true">*</span></label>
+                <select id="project-type" name="Project Type" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>iOS / iPadOS port</option>
+                  <option>Android port</option>
+                  <option>Cross-platform port</option>
+                  <option>Existing app modernization</option>
+                  <option>Build / platform integration</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="project-link">Existing project link</label>
+                <input id="project-link" name="Existing Project Link" type="url" inputmode="url" placeholder="https://">
+              </div>
+              <div class="form-field">
+                <label for="current-platform">Current platform / stack <span aria-hidden="true">*</span></label>
+                <input id="current-platform" name="Current Platform or Stack" type="text" placeholder="e.g. Windows, C++, SDL3" required>
+              </div>
+              <div class="form-field">
+                <label for="target-platform">Target platform <span aria-hidden="true">*</span></label>
+                <input id="target-platform" name="Target Platform" type="text" placeholder="e.g. iPhone and iPad" required>
+              </div>
+            </div>
+
+            <div class="form-field form-field-wide">
+              <label for="overview">Project overview <span aria-hidden="true">*</span></label>
+              <textarea id="overview" name="Project Overview" rows="7" required placeholder="Describe the application, its current state, the outcome you need, and any known technical constraints."></textarea>
+              <p class="field-note">A concise technical overview is more useful than a sales pitch.</p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Commercial details</legend>
+            <div class="form-grid two-column">
+              <div class="form-field">
+                <label for="timeline">Desired timeline <span aria-hidden="true">*</span></label>
+                <select id="timeline" name="Desired Timeline" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>Flexible</option>
+                  <option>Within 1 month</option>
+                  <option>1–2 months</option>
+                  <option>2–4 months</option>
+                  <option>4+ months</option>
+                  <option>Specific deadline</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="budget">Estimated budget</label>
+                <select id="budget" name="Estimated Budget">
+                  <option value="" selected>Not yet determined</option>
+                  <option>Under $2,500</option>
+                  <option>$2,500–$5,000</option>
+                  <option>$5,000–$10,000</option>
+                  <option>$10,000–$25,000</option>
+                  <option>$25,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field form-field-wide">
+              <label for="additional">Additional information</label>
+              <textarea id="additional" name="Additional Information" rows="5" placeholder="Distribution requirements, licensing considerations, access constraints, or anything else relevant to the evaluation."></textarea>
+            </div>
+          </fieldset>
+
+          <div class="form-submit-row">
+            <p>Information submitted through this form is used to evaluate and respond to your project inquiry.</p>
+            <button class="button button-primary form-submit" type="submit">Submit project inquiry <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <a class="brand" href="../" aria-label="NyerahWorks home">
+        <span class="brand-symbol" aria-hidden="true">N</span>
+        <span class="brand-name"><span class="brand-heavy">Nyerah</span><span class="brand-light">Works</span></span>
+      </a>
+      <div class="footer-links">
+        <a href="https://github.com/NyerahMT">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="mailto:contact@nyerahworks.com">Email</a>
+      </div>
+      <p>Software porting / iOS engineering · © <span data-year></span> NyerahWorks</p>
+    </div>
+  </footer>
+</body>
+</html>
