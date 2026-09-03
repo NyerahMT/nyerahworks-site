@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Submit a project inquiry to NyerahWorks for software porting, iOS engineering, platform integration, and application modernization work.">
+  <meta name="description" content="Submit a project inquiry to NyerahWorks for iOS and iPadOS software porting, platform integration, testing, and distribution.">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://nyerahworks.com/inquiry/">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -45,7 +45,7 @@
           <h1>Tell us about the software.</h1>
         </div>
         <div class="inquiry-intro" data-reveal>
-          <p>Provide enough context to evaluate the current codebase, target platform, scope, and delivery requirements. NyerahWorks will review the information and follow up by email.</p>
+          <p>Provide enough context to evaluate the existing codebase, Apple device targets, scope, and delivery requirements. NyerahWorks will review the information and follow up by email.</p>
           <p class="inquiry-direct">Prefer email? <a href="mailto:contact@nyerahworks.com">contact@nyerahworks.com</a></p>
         </div>
       </div>
@@ -57,7 +57,7 @@
           <p class="aside-label">Before submitting</p>
           <ol>
             <li><span>01</span><p>Include a repository, product, or documentation link when one is available.</p></li>
-            <li><span>02</span><p>Describe the current platform and the platform you want to support.</p></li>
+            <li><span>02</span><p>Describe the current platform and the Apple devices you want to support.</p></li>
             <li><span>03</span><p>Call out hard deadlines, distribution requirements, or known technical constraints.</p></li>
           </ol>
         </aside>
@@ -98,15 +98,13 @@
             <legend>Project</legend>
             <div class="form-grid two-column">
               <div class="form-field">
-                <label for="project-type">Project type <span aria-hidden="true">*</span></label>
-                <select id="project-type" name="Project Type" required>
+                <label for="apple-target">Target Apple devices <span aria-hidden="true">*</span></label>
+                <select id="apple-target" name="Target Apple Devices" required>
                   <option value="" selected disabled>Select one</option>
-                  <option>iOS / iPadOS port</option>
-                  <option>Android port</option>
-                  <option>Cross-platform port</option>
-                  <option>Existing app modernization</option>
-                  <option>Build / platform integration</option>
-                  <option>Other</option>
+                  <option>iPhone</option>
+                  <option>iPad</option>
+                  <option>iPhone and iPad</option>
+                  <option>Not yet determined</option>
                 </select>
               </div>
               <div class="form-field">
@@ -114,18 +112,18 @@
                 <input id="project-link" name="Existing Project Link" type="url" inputmode="url" placeholder="https://">
               </div>
               <div class="form-field">
-                <label for="current-platform">Current platform / stack <span aria-hidden="true">*</span></label>
-                <input id="current-platform" name="Current Platform or Stack" type="text" placeholder="e.g. Windows, C++, SDL3" required>
+                <label for="current-platform">Current platform <span aria-hidden="true">*</span></label>
+                <input id="current-platform" name="Current Platform" type="text" placeholder="e.g. Windows, macOS, Linux" required>
               </div>
               <div class="form-field">
-                <label for="target-platform">Target platform <span aria-hidden="true">*</span></label>
-                <input id="target-platform" name="Target Platform" type="text" placeholder="e.g. iPhone and iPad" required>
+                <label for="tech-stack">Language / framework <span aria-hidden="true">*</span></label>
+                <input id="tech-stack" name="Language or Framework" type="text" placeholder="e.g. C++, SDL3, Qt" required>
               </div>
             </div>
 
             <div class="form-field form-field-wide">
               <label for="overview">Project overview <span aria-hidden="true">*</span></label>
-              <textarea id="overview" name="Project Overview" rows="7" required placeholder="Describe the application, its current state, the outcome you need, and any known technical constraints."></textarea>
+              <textarea id="overview" name="Project Overview" rows="7" required placeholder="Describe the application, its current state, the iOS or iPadOS outcome you need, and any known technical constraints."></textarea>
               <p class="field-note">A concise technical overview is more useful than a sales pitch.</p>
             </div>
           </fieldset>
@@ -160,7 +158,7 @@
 
             <div class="form-field form-field-wide">
               <label for="additional">Additional information</label>
-              <textarea id="additional" name="Additional Information" rows="5" placeholder="Distribution requirements, licensing considerations, access constraints, or anything else relevant to the evaluation."></textarea>
+              <textarea id="additional" name="Additional Information" rows="5" placeholder="App Store or TestFlight requirements, licensing considerations, access constraints, or anything else relevant to the evaluation."></textarea>
             </div>
           </fieldset>
 
